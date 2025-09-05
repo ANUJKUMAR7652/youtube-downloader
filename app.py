@@ -19,7 +19,8 @@ def download():
         url = request.form['url']
         quality = request.form['quality']
         
-        yt = YouTube(url)
+       # यह नई और सही लाइन है
+yt = YouTube(url, use_po_token=True, use_oauth=False, allow_oauth_cache=False)
         
         stream = None
         
@@ -57,4 +58,5 @@ def download():
 # यह सुनिश्चित करने के लिए कि यह स्थानीय रूप से भी चलता है
 if __name__ == '__main__':
     app.run(debug=True)
+
 
