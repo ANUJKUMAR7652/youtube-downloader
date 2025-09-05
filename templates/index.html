@@ -1,1 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Downloader</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+        }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+        }
+        h1 {
+            color: #1c1e21;
+            margin-bottom: 1.5rem;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 1rem;
+            border: 1px solid #dddfe2;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+        select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 1.5rem;
+            border: 1px solid #dddfe2;
+            border-radius: 6px;
+            background-color: white;
+        }
+        button {
+            background-color: #1877f2;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #166fe5;
+        }
+        .message {
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>YouTube Video Downloader</h1>
+        <form action="/download" method="post" onsubmit="showLoading()">
+            <input type="text" name="url" placeholder="YouTube वीडियो का URL यहाँ पेस्ट करें" required>
+            <select name="quality">
+                <option value="high">High (720p)</option>
+                <option value="low">Low (360p)</option>
+                <option value="audio">Audio Only (MP3)</option>
+            </select>
+            <button type="submit">डाउनलोड करें</button>
+        </form>
+        <p id="loading-message" class="message" style="display: none;">डाउनलोडिंग शुरू हो रही है, कृपया प्रतीक्षा करें...</p>
+    </div>
+
+    <script>
+        function showLoading() {
+            document.getElementById('loading-message').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
 
